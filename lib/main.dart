@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Todo App',
       home: HomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.deepPurple,
         useMaterial3: false,
         textTheme: TextTheme(
           bodyLarge: TextStyle(fontWeight: FontWeight.bold),

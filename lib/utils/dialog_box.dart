@@ -8,7 +8,7 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.yellow[300],
+      backgroundColor: Colors.yellow[400],
       content: Container(
         height: 120,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
@@ -30,18 +30,14 @@ class DialogBox extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                      Colors.yellow[200],
-                    ),
+                    backgroundColor: WidgetStateProperty.all(Colors.deepPurple),
                   ),
                   child: Text('Save'),
                 ),
                 ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(
-                      Colors.yellow[200],
-                    ),
+                    backgroundColor: WidgetStateProperty.all(Colors.deepPurple),
                   ),
                   child: Text('Cancel'),
                 ),

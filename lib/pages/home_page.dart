@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Colors.deepPurple[200],
       appBar: AppBar(title: Text('Todo App'), elevation: 0),
       floatingActionButton: FloatingActionButton(
         onPressed: () => createNewTask("New Task"),
