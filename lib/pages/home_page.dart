@@ -10,6 +10,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //save new task
+  void saveNewTask() {
+    if (controller.text.isNotEmpty) {
+      setState(() {
+        todoList.add([controller.text, false]);
+      });
+      controller.clear();
+      Navigator.pop(context);
+    }
+  }
+
+  //cancel new task
+  void cancelNewTask() {
+    controller.clear();
+    Navigator.pop(context);
+  }
+
+  //controller
+  final controller = TextEditingController();
+
   //list of items to be displayed in the list
   List<List> todoList = [
     ["Complete App", true],
@@ -28,7 +48,12 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox();
+        return DialogBox(
+          //text editing controller
+          controller: controller,
+          onSave: saveNewTask,
+          onCancel: cancelNewTask,
+        );
       },
     );
   }

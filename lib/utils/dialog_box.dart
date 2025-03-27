@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:overmind/utils/my_button.dart';
 
 class DialogBox extends StatelessWidget {
-  const DialogBox({super.key});
+  //text edtitng controller
+  final TextEditingController controller;
 
-  //const TextEditingController controller = TextEditingController();
+  //ON SAVE AND CANCEL
+  final VoidCallback onSave;
+  final VoidCallback onCancel;
+
+  const DialogBox({
+    super.key, 
+    required this.controller,
+    required this.onSave,
+    required this.onCancel,
+    });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +27,7 @@ class DialogBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextField(
-              //controller: controller,
+              controller: controller,
               decoration: InputDecoration(
                 hintText: 'Enter Task Name',
                 border: OutlineInputBorder(
@@ -24,23 +35,13 @@ class DialogBox extends StatelessWidget {
                 ),
               ),
             ),
+
+            //buttons -> save + cancel
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.deepPurple),
-                  ),
-                  child: Text('Save'),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.deepPurple),
-                  ),
-                  child: Text('Cancel'),
-                ),
+                MyButton(onPressed: onSave, buttonText: 'Save'),
+                MyButton(onPressed: onCancel, buttonText: 'Cancel'),
               ],
             ),
           ],
