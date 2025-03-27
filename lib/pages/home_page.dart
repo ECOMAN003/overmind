@@ -10,6 +10,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //delete task
+  void deleteTask(int index) {
+    setState(() {
+      todoList.removeAt(index);
+    });
+  }
+  
   //save new task
   void saveNewTask() {
     if (controller.text.isNotEmpty) {
@@ -74,6 +81,7 @@ class _HomePageState extends State<HomePage> {
             taskName: todoList[index][0],
             isCompleted: todoList[index][1],
             onCheckboxChanged: (value) => toggleCheckbox(value, index),
+            deleteFunction: (context) => deleteTask(index),
           );
         },
       ),
